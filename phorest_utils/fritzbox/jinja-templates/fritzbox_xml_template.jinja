@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<phonebooks>
+    <phonebook>
+        {% for entry in clients %}
+        <contact>
+            <category>0</category>
+            <person>
+                <realName>{{ entry.firstName.strip() }} {{ entry.lastName.strip() }}</realName>
+            </person>
+            <telephony nid="1">
+            {% if 'landLine' in entry %}
+                <number type="home"   prio="2" id="1">{{ entry.landLine }}</number>
+            {% endif %}
+            {% if 'mobile' in entry %}
+                <number type="mobile" prio="1" id="0">{{ entry.mobile }}</number>
+            {% endif %}
+            </telephony>
+            <services />
+            <setup />
+            <features doorphone="0" />
+            <mod_time>{{ unix_timestamp }}</mod_time>
+            <uniqueid>{{ entry.clientId }}</uniqueid>
+        </contact>
+        {% endfor %}
+    </phonebook>
+</phonebooks>

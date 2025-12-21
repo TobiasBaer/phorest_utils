@@ -1,0 +1,47 @@
+[build-system]
+requires = ["hatchling >= 1.26"]
+build-backend = "hatchling.build"
+
+[project]
+readme = "README.md"
+dependencies = [
+  "coloredlogs",
+  "fire",
+  "jinja2",
+  "requests"
+]
+
+name = "phorest_utils"
+version = "1.0.0"
+authors = [
+  { name="Tobias Bär", email="Tobias.Baer@web.de" },
+]
+description = "Utility Package for Phorest Salon Software"
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+license = "MIT"
+license-files = ["LICENSE"]
+
+[project.urls]
+Homepage = "https://github.com/TobiasBaer/phorest_utils"
+Issues = "https://github.com/TobiasBaer/phorest_utils/issues"
+
+[tool.ruff]
+line-length = 120
+
+[tool.ruff.lint]
+# Enable specific rule sets
+select = [
+    "E",    # pycodestyle errors
+    "W",    # pycodestyle warnings  
+    "F",    # Pyflakes
+    "UP",   # pyupgrade
+    "B",    # flake8-bugbear
+    "I",    # isort
+]
+
+[tool.pylint.format]
+max-line-length = 120
